@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">FoodieApp</string>
+    <string name="dog_content_description">Biryani Indian food</string>
+    <string name="food1">maxican food platter</string>
+    <string name="biryani">Biryani Indian food</string>
+    <string name="food2">Burger</string>
+    <string name="food3">Indo-chinese noodles</string>
+    <string name="food4">cakes</string>
+    <string name="food5">bavarage</string>
 </resources>
