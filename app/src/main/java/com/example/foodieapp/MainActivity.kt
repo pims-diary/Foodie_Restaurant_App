@@ -36,75 +36,15 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-                    Homepage()
+            MenuBar()
         }
     }
 }
 
 
 
-@Composable
-fun Homepage() {
-    LazyColumn(
-        modifier = Modifier.fillMaxSize()
-    ) {
-        item {
-            // First image
-            Image(
-                painter = painterResource(id = R.drawable.biryani),
-                contentDescription = stringResource(id = R.string.biryani),
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .aspectRatio(1f)
-                    .padding(bottom = 16.dp) // Add spacing below
-            )
-        }
-        item {
-            // Second image
-            Image(
-                painter = painterResource(id = R.drawable.food1),
-                contentDescription = stringResource(id = R.string.food1),
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .aspectRatio(1f)
-                    .padding(bottom = 16.dp) // Add spacing below
-            )
-        }
-        item {
-            // Third image
-            Image(
-                painter = painterResource(id = R.drawable.food2),
-                contentDescription = stringResource(id = R.string.food2),
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .aspectRatio(1f)
-                    .padding(bottom = 16.dp) // Add spacing below
-            )
-        }
-        item {
-            // Fourth image
-            Image(
-                painter = painterResource(id = R.drawable.food4),
-                contentDescription = stringResource(id = R.string.food4),
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .aspectRatio(1f)
-                    .padding(bottom = 16.dp) // Add spacing below
-            )
-        }
-        item {
-            // Fifth image
-            Image(
-                painter = painterResource(id = R.drawable.food5),
-                contentDescription = stringResource(id = R.string.food5),
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .aspectRatio(1f)
-                    .padding(bottom = 16.dp) // Add spacing below
-            )
-        }
-    }
-}
+
+
 
 
 
