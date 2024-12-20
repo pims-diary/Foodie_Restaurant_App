@@ -59,7 +59,9 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
-    implementation (libs.androidx.core.ktx.v1140) // Adjust to a compatible version
+    implementation (libs.androidx.core.ktx.v1140)
+    implementation(libs.protolite.well.known.types)
+    implementation(libs.androidx.games.text.input) // Adjust to a compatible version
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
