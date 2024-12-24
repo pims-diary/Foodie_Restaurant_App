@@ -29,22 +29,60 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun ViewMenuPage(menuItems: List<MenuItem>) {
+fun ViewMenuPage(cartViewModel: CartViewModel) {
+    val sampleMenu = listOf(
+        MenuItem(
+            title = "Biryani",
+            description = "Aromatic rice dish with spices and meat.",
+            price = 12.99
+        ),
+        MenuItem(
+            title = "Pizza",
+            description = "Cheesy pizza with fresh toppings.",
+            price = 9.99
+        ),
+        MenuItem(
+            title = "Fish and chips",
+            description = "4 pieces of Beer battered crispy Snapper fillet along with fries with garlic and chive sauce.",
+            price = 20.9
+        ),
+        MenuItem(
+            title = "Soupy dumplings",
+            description = "12 chicken and chives steamed dumplings",
+            price = 18.5
+        ),
+        MenuItem(
+            title = "Pan-fried dumplings",
+            description = "12 chicken and chives pan fried dumplings",
+            price = 19.0
+        ),
+        MenuItem(
+            title = "Mixed fried rice",
+            description = "Chinese style fried rice with eggs, chicken, crab meat and veggies",
+            price = 21.9
+        ),
+        MenuItem(
+            title = "Chilli chicken",
+            description = "8 pieces of Sour and spicy indo style chilli chicken",
+            price = 25.0
+        )
+    )
+
     LazyColumn(
         modifier =
         Modifier
             .fillMaxSize()
             .padding(top = 105.dp)
     ) {
-        items(menuItems.size) { itemNumber ->
-            MenuItemCard(menuItems[itemNumber])
+        items(sampleMenu.size) { itemNumber ->
+            MenuItemCard(sampleMenu[itemNumber], cartViewModel)
             Spacer(modifier = Modifier.height(16.dp)) // Add spacing between items
         }
     }
 }
 
 @Composable
-fun MenuItemCard(menuItem: MenuItem) {
+fun MenuItemCard(menuItem: MenuItem, cartViewModel: CartViewModel) {
     var quantity by remember { mutableStateOf("1") } // Default quantity is 1
 
     Card(
@@ -103,7 +141,8 @@ fun MenuItemCard(menuItem: MenuItem) {
                     onClick = {
                         val qty = quantity.toIntOrNull() ?: 0
                         if (qty > 0) {
-                            // onAddToCart(menuItem, qty)
+                            cartViewModel.addItemToCart(CartItem(menuItem.title, qty, menuItem.price))
+                            quantity = ""
                         }
                     }
                 ) {

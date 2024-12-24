@@ -43,45 +43,7 @@ fun MenuBar() {
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
     val scope = rememberCoroutineScope()
     var currentPage by remember { mutableIntStateOf(0) }
-
-    val sampleMenu = listOf(
-        MenuItem(
-            title = "Biryani",
-            description = "Aromatic rice dish with spices and meat.",
-            price = 12.99
-        ),
-        MenuItem(
-            title = "Pizza",
-            description = "Cheesy pizza with fresh toppings.",
-            price = 9.99
-        ),
-        MenuItem(
-            title = "Fish and chips",
-            description = "4 pieces of Beer battered crispy Snapper fillet along with fries with garlic and chive sauce.",
-            price = 20.9
-        ),
-        MenuItem(
-            title = "Soupy dumplings",
-            description = "12 chicken and chives steamed dumplings",
-            price = 18.5
-        ),
-        MenuItem(
-            title = "Pan-fried dumplings",
-            description = "12 chicken and chives pan fried dumplings",
-            price = 19.0
-        ),
-        MenuItem(
-            title = "Mixed fried rice",
-            description = "Chinese style fried rice with eggs, chicken, crab meat and veggies",
-            price = 21.9
-        ),
-        MenuItem(
-            title = "Chilli chicken",
-            description = "8 pieces of Sour and spicy indo style chilli chicken",
-            price = 25.0
-    )
-
-    )
+    val cartViewModel = remember { CartViewModel() }
 
     ModalNavigationDrawer(
         drawerContent = {
@@ -110,7 +72,12 @@ fun MenuBar() {
                         label = { Text("Checkout") },
                         selected = false,
                         icon = { Icon(Icons.Outlined.ShoppingCart, contentDescription = null) },
-                        onClick = { /* Handle click */ }
+                        onClick = {
+                            currentPage = 2
+                            scope.launch {
+                                drawerState.close()
+                            }
+                        }
                     )
 
                     HorizontalDivider(modifier = Modifier.padding(vertical = 8.dp))
@@ -158,7 +125,8 @@ fun MenuBar() {
         ) {
             when (currentPage) {
                 0 -> HomePage()
-                1 -> ViewMenuPage(sampleMenu)
+                1 -> ViewMenuPage(cartViewModel)
+                2 -> CheckoutPage(cartViewModel)
             }
         }
     }
