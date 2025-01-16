@@ -13,8 +13,10 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.outlined.Add
 import androidx.compose.material.icons.outlined.Call
+import androidx.compose.material.icons.outlined.Edit
 import androidx.compose.material.icons.outlined.MailOutline
 import androidx.compose.material.icons.outlined.ShoppingCart
+import androidx.compose.material.icons.outlined.ThumbUp
 import androidx.compose.material3.DrawerValue
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
@@ -84,6 +86,18 @@ fun MenuBar() {
                             }
                         }
                     )
+                    NavigationDrawerItem(
+                        label = { Text("Test") },
+                        selected = false,
+                        icon = { Icon(Icons.Outlined.ThumbUp, contentDescription = null) },
+                        onClick = {
+                            currentPage = 3
+                            scope.launch {
+                                drawerState.close()
+                            }
+                        }
+                    )
+
 
                     HorizontalDivider(modifier = Modifier.padding(vertical = 8.dp))
 
@@ -137,6 +151,8 @@ fun MenuBar() {
                 0 -> HomePage()
                 1 -> ViewMenuPage(cartViewModel)
                 2 -> CheckoutPage(cartViewModel)
+                3 -> Test()
+
             }
         }
     }
