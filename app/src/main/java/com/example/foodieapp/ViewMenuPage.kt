@@ -27,6 +27,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import com.example.foodieapp.datalayer.datamodel.CartItem
+import com.example.foodieapp.datalayer.datamodel.MenuItem
 
 @Composable
 fun ViewMenuPage(cartViewModel: CartViewModel) {

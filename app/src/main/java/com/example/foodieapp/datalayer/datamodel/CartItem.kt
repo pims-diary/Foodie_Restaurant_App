@@ -1,4 +1,4 @@
-package com.example.foodieapp
+package com.example.foodieapp.datalayer.datamodel
 
 data class CartItem(
     val name: String,

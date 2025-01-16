@@ -2,6 +2,7 @@ package com.example.foodieapp
 
 import androidx.compose.runtime.mutableStateListOf
 import androidx.lifecycle.ViewModel
+import com.example.foodieapp.datalayer.datamodel.CartItem
 
 class CartViewModel : ViewModel() {
     // List to hold cart items

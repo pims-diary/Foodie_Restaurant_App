@@ -1,4 +1,4 @@
-package com.example.foodieapp
+package com.example.foodieapp.datalayer.datamodel
 
 data class MenuItem(
     val title: String,
