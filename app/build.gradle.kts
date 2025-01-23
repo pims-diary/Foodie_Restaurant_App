@@ -53,6 +53,7 @@ dependencies {
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.androidx.lifecycle.runtime.compose)
     implementation(libs.androidx.activity.compose)
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.ui)
@@ -63,6 +64,9 @@ dependencies {
     implementation(libs.protolite.well.known.types)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.lifecycle.viewmodel.compose)
+    implementation(libs.androidx.runtime.livedata)
+    implementation (libs.androidx.compose.runtime.runtime.livedata.v151)
+    implementation (libs.androidx.runtime)
     implementation(libs.androidx.games.text.input) // Adjust to a compatible version
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
