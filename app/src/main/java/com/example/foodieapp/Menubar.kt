@@ -39,6 +39,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -151,8 +152,7 @@ fun MenuBar() {
                 0 -> HomePage()
                 1 -> ViewMenuPage(cartViewModel)
                 2 -> CheckoutPage(cartViewModel)
-                3 -> Test()
-
+                3 -> FoodMenuScreen()
             }
         }
     }
